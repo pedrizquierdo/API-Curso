@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get("/", async (req, res) => {
-  const [row] = await pool.query("SELECT 1 + 1 FROM as a Result");
-    res.send(`¡Hola, mundo! La hora del servidor es ${row[0].result}`).status(200);
+  const [row] = await pool.query("SELECT 1 + 1 AS result");
+  res.send(`¡Hola Mundo! La hora del servidor es: ${row[0].result}`).status(200);
 });
 
 app.get("/users", (req, res) => {
