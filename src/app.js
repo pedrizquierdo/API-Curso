@@ -1,8 +1,11 @@
 import express from "express";
 import pool from "./config/db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.get("/", async (req, res) => {
   const [row] = await pool.query("SELECT 1 + 1 AS result");
