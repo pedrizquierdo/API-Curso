@@ -54,8 +54,9 @@ const loginController = async (req, res) => {
         });
         res.json({message: "Inicio de sesión exitoso"});
     } catch (error) {
-        return errorHandlerController("Error al iniciar sesión", 500, res, error);
-    }
+    console.error("EL ERROR REAL ES:", error); // <--- AGREGA ESTO
+    return errorHandlerController("Error al iniciar sesión", 500, res, error);
+}
 };  
 
 const logoutController = async (req, res) => {
